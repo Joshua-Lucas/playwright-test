@@ -63,21 +63,21 @@ test('Fixed price rule applies correctly', async () => {
   }
 });
 
-// test('Percentage price rule applies correctly', async () => {
-//   // Find the product title element containing the text "B&F Organic Basil"
-//   const productTitle = 'B&F Organic Basil';
-//   const productSelector = await page.getByText(productTitle);
-//   // Locate the parent element of the product title which is .wsg-product-info-block
-//   const productInfoBlock = await productSelector.locator('..');
+test('Percentage price rule applies correctly', async () => {
+  // Find the product title element containing the text "B&F Organic Basil"
+  const productTitle = 'B&F Organic Basil';
+  const productSelector = await page.getByText(productTitle);
+  // Locate the parent element of the product title which is .wsg-product-info-block
+  const productInfoBlock = await productSelector.locator('..');
 
-//   // Now find the price within the same product info block
-//   const priceSelector = '.wsg-product-price';
-//   const priceElement = await productInfoBlock.locator(priceSelector);
+  // Now find the price within the same product info block
+  const priceSelector = '.wsg-product-price';
+  const priceElement = await productInfoBlock.locator(priceSelector);
 
-//   // Retrieve and log the price text
-//   const priceText = await priceElement.textContent();
-//   await expect(priceText).toBe('$9.00');
-// });
+  // Retrieve and log the price text
+  const priceText = await priceElement.textContent();
+  await expect(priceText).toBe('$9.00');
+});
 
 test('Product Excluded From Wholesale', async () => {
   await page.waitForLoadState('networkidle');
@@ -86,3 +86,4 @@ test('Product Excluded From Wholesale', async () => {
 
   await expect(excludedProdut).not.toBeAttached();
 });
+
