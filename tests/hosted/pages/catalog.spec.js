@@ -86,3 +86,4 @@ test('Product Excluded From Wholesale', async () => {
 
   await expect(excludedProdut).not.toBeAttached();
 });
+
